@@ -129,8 +129,6 @@ Run information
 
 Required for successful run:
 
-- Clu. PF (#/mm2) > 475K 
-
 - Average error rate for read1 and read2 < 2%
 
 Summary read 1
@@ -415,14 +413,14 @@ def generate_report(proj_conf):
         comm_r2 = ""
 
         # check criteria
-        if float(clu_dens_pf_r1[:-1]) < min_clupf: 
-            ok_r1 = False
-            ok_cludens_r1 = False
-            comm_r1 += "Low cluster density. "
-        if float(clu_dens_pf_r2[:-1]) < min_clupf: 
-            ok_r2 = False
-            ok_cludens_r2 = False
-            comm_r2 += "Low cluster density. "
+        # if float(clu_dens_pf_r1[:-1]) < min_clupf: 
+        #    ok_r1 = False
+        #    ok_cludens_r1 = False
+        #    comm_r1 += "Low cluster density. "
+        # if float(clu_dens_pf_r2[:-1]) < min_clupf: 
+        #    ok_r2 = False
+        #    ok_cludens_r2 = False
+        #    comm_r2 += "Low cluster density. "
         avg_error_rate = (float(err_r1) + float(err_r2))/2
         if avg_error_rate > max_mean_err:
             ok_err_rate = False
@@ -443,8 +441,8 @@ def generate_report(proj_conf):
     comm_r1 = ""
     comm_r2 = ""
  
-    if not ok_cludens_r1: comm_r1 += "Low cluster density. " 
-    if not ok_cludens_r2: comm_r2 += "Low cluster density. " 
+    # if not ok_cludens_r1: comm_r1 += "Low cluster density. " 
+    # if not ok_cludens_r2: comm_r2 += "Low cluster density. " 
     if not ok_err_rate:
         if not ok_err_r1: 
             ok_r1 = False
@@ -610,8 +608,7 @@ if __name__ == "__main__":
     parser = OptionParser(usage=usage)
     parser.add_option("-a", "--archive_dir", dest="archive_dir", default="/bubo/proj/a2010002/archive")
     parser.add_option("-b", "--analysis_dir", dest="analysis_dir", default="/bubo/proj/a2010002/nobackup/illumina")
-    parser.add_option("-n", "--dry_run", dest="dry_run", action="store_true",
-                      default=False)
+    parser.add_option("-n", "--dry_run", dest="dry_run", action="store_true",default=False)
     parser.add_option("--v1.5", dest="v1_5_fc", action="store_true", default=False)
     parser.add_option("-c", "--config-file", dest="config_file", default=None)
     (options, args) = parser.parse_args()
