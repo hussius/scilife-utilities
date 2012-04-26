@@ -453,7 +453,7 @@ def generate_report(proj_conf):
 
     if (ok_r1 and ok_r2): 
         comm_r1 = comm_r2 = "OK"
-        d.update(summary = "Successful run according to QC criteria. ")
+        d.update(summary = "Successful run in terms of error rate. ")
     else:  
         if (ok_r1): 
             comm_r1 = "OK"
