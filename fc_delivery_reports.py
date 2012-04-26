@@ -413,14 +413,14 @@ def generate_report(proj_conf):
         comm_r2 = ""
 
         # check criteria
-        # if float(clu_dens_pf_r1[:-1]) < min_clupf: 
-        #    ok_r1 = False
-        #    ok_cludens_r1 = False
-        #    comm_r1 += "Low cluster density. "
-        # if float(clu_dens_pf_r2[:-1]) < min_clupf: 
-        #    ok_r2 = False
-        #    ok_cludens_r2 = False
-        #    comm_r2 += "Low cluster density. "
+        if float(clu_dens_pf_r1[:-1]) < min_clupf: 
+            ok_r1 = False
+            ok_cludens_r1 = False
+            comm_r1 += "Low cluster density. "
+        if float(clu_dens_pf_r2[:-1]) < min_clupf: 
+            ok_r2 = False
+            ok_cludens_r2 = False
+            comm_r2 += "Low cluster density. "
         avg_error_rate = (float(err_r1) + float(err_r2))/2
         if avg_error_rate > max_mean_err:
             ok_err_rate = False
