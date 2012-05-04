@@ -312,7 +312,7 @@ def generate_report(proj_conf):
                   ["Instrument ID:", instr_id],
                   ["Flow cell ID:", fc_name],
                   ["Uppnex project:", uppnex_proj],
-                  ["Delivery directory:", del_base + uppnex_proj + "/INBOX/" + proj_level_dir + "/20" + simple_run_name + "_hiseq2000"]])
+                  ["Delivery directory:", del_base + uppnex_proj + "/INBOX/" + proj_level_dir + "/" + proj_conf['flowcell']]])
     d.update(infotable=tab.draw())
     
     ## Lane table
